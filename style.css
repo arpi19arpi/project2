@@ -1,120 +1,63 @@
-/* Border box declaration */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+/* Border box and universal styles */
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
 
-/* Body and link styles */
-body {
-  font-family: Arial, Geneva, sans-serif;
-  background: #fff; /* optional page background */
-}
-a {
-  color: #2772B0;
-}
+body { font-family: Arial, Geneva, sans-serif; background: #fff; }
+a { color: #2772B0; }
 
-/* Wrapper */
-.wrapper {
-  width: 97%;
-  max-width: 1200px;
-  margin: 0 auto;
-  float: none;
-  background-color: #fff;
-}
+.wrapper { width: 97%; max-width: 1200px; margin: 0 auto; float: none; background-color: #fff; }
 
 /* Images: uniform size */
 div img {
   width: 100%;
-  height: 200px;       /* fixed height for all images */
-  object-fit: cover;   /* crops nicely without stretching */
-  border-radius: 8px;  /* optional rounded corners */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-/* Grid system -- mobile first */
-.row {
-  display: flex;
-  flex-flow: row wrap;
-}
+/* Grid system */
+.row { display: flex; flex-flow: row wrap; }
+[class*="col-"] { margin-left: 4%; flex: 0 0 92%; padding: 10px; }
 
-[class*="col-"] {
-  margin-left: 4%;
-  flex: 0 0 92%;
-  padding: 10px; /* optional spacing inside each box */
-}
+/* Alternating background colors for each row */
+.row-1 { background-color: #FFC0CB; } /* pink */
+.row-2 { background-color: #ADD8E6; } /* blue */
+.row-3 { background-color: #FFC0CB; } /* pink */
+.row-4 { background-color: #ADD8E6; } /* blue */
+.row-5 { background-color: #FFC0CB; } /* pink */
+.row-6 { background-color: #ADD8E6; } /* blue */
 
-/* Background colors */
-.col-1 {
-  background-color: #FFC0CB; /* pink */
-}
-
-.col-2 {
-  background-color: #ADD8E6; /* blue */
-}
-
-.col-1-3,
-.col-3-3,
-.col-full,
-.col-unique {
-  background-color: #FFC0CB; /* pink for consistency */
-}
-
-/* Tablet Landscape Screen Sizes */
+/* Column width adjustments for desktop/tablet */
 @media only screen and (min-width: 480px) {
-  .col-1,
-  .col-2 {
-    flex: 0 0 44%;
-  }
+  .col-1, .col-2 { flex: 0 0 44%; }
 }
 
-/* Desktop Screen Sizes */
 @media only screen and (min-width: 768px) {
-  .col-1 {
-    flex: 0 0 20%;
-  }
-  .col-2 {
-    flex: 0 0 44%;
-  }
-}
-
-/* Row 3: 1 narrow + 1 wide column */
-@media only screen and (min-width: 768px) {
+  .col-1 { flex: 0 0 20%; }
+  .col-2 { flex: 0 0 44%; }
   .col-1-3 { flex: 0 0 20%; }
   .col-3-3 { flex: 0 0 68%; }
-}
-
-/* Row 4 full-width column */
-@media only screen and (min-width: 768px) {
   .col-full { flex: 0 0 96%; }
 }
 
-/* Row 5 order classes */
 .order-1 { order: 1; }
 .order-2 { order: 2; }
 .order-3 { order: 3; }
 
-/* Row 5 tablet reorder */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .order-1 { order: 1; }
   .order-2 { order: 3; }
   .order-3 { order: 2; }
 }
 
-/* Row 5 mobile: normal stacking */
 @media only screen and (max-width: 479px) {
   .order-1 { order: 1; }
   .order-2 { order: 2; }
   .order-3 { order: 3; }
 }
 
-/* Row 6 unique layout */
-.row-6 {
-  justify-content: space-between;
-}
-
+/* Row 6 items behave like other columns */
 .col-unique {
-  background-color: #FFC0CB;
   padding: 20px;
   text-align: center;
   flex-grow: 1;
@@ -122,12 +65,5 @@ div img {
   margin-bottom: 15px;
 }
 
-/* Row 6 tablet layout */
-@media only screen and (max-width: 767px) {
-  .col-unique { flex-basis: 44%; }
-}
-
-/* Row 6 mobile layout */
-@media only screen and (max-width: 479px) {
-  .col-unique { flex-basis: 92%; }
-}
+@media only screen and (max-width: 767px) { .col-unique { flex-basis: 44%; } }
+@media only screen and (max-width: 479px) { .col-unique { flex-basis: 92%; } }

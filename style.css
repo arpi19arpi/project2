@@ -85,53 +85,84 @@ div img {
   margin-left: 0;
 }
 
-/* Row 5: left 1-col, middle 2-col, right 1-col */
-.row-5 .col-1 { 
-  flex: 0 0 20%;
-  background-color: #ffc0cb;
-}
-.row-5 .col-2 {
-  flex: 0 0 44%;
-  background-color: #add8e6;
-}
-.row-5 .col-1:first-child { margin-left: 0; }
-.row-5 .col-2 { margin-left: 4%; }
-
-/* Row 5 responsive order */
-.order-1 { order: 1; }
-.order-2 { order: 2; }
-.order-3 { order: 3; }
-
-@media only screen and (max-width: 767px) {
-  .row-5 [class*="col-"] { flex: 0 0 44%; }
-  .order-1 { order: 1; }
-  .order-2 { order: 3; }
-  .order-3 { order: 2; }
-}
-
-@media only screen and (max-width: 479px) {
-  .row-5 [class*="col-"] { flex: 0 0 92%; }
-}
-
-/* Row 6: 5 equal columns */
-.row-6 {
-  justify-content: space-between;
+/* Row 5: Desktop layout 1-col → 2-col → 1-col */
+.row-5 {
+  display: flex;
   flex-wrap: wrap;
 }
-.col-unique {
-  flex: 0 0 18%; /* 5 per row with some spacing */
-  margin-left: 2%;
+
+/* COLUMN WIDTHS ON DESKTOP */
+.row-5 .col-1 { 
+  flex: 0 0 20%;      /* left & right columns */
+  background-color: #ffc0cb;
+}
+
+.row-5 .col-2 {
+  flex: 0 0 44%;      /* middle column */
+  background-color: #add8e6;
+}
+
+/* EVEN SPACING: margin-left only for items AFTER the first one */
+.row-5 [class*="col-"] {
+  margin-left: 4%;
+}
+
+/* FIRST ITEM IN ROW GETS NO LEFT MARGIN */
+.row-5 [class*="col-"]:first-child {
+  margin-left: 0;
+}
+
+/* RESPONSIVE ORDER CHANGES FOR TABLET */
+.order-1 { order: 1; }  /* left item */
+.order-2 { order: 2; }  /* middle item */
+.order-3 { order: 3; }  /* right item */
+
+/* TABLET LAYOUT: 2 across, reorder items */
+@media only screen and (max-width: 767px) {
+  .row-5 [class*="col-"] { flex: 0 0 44%; }
+
+  .order-1 { order: 1; }   /* first */
+  .order-2 { order: 3; }   /* last */
+  .order-3 { order: 2; }
+
+/* Row 6: unique layout using flex-direction: row-reverse */
+.row-6 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse; /* rows order reversed */
+  margin-bottom: 20px;
+}
+.row-6 .col-unique {
+  flex: 0 0 18%; /* size similar to other rows but order reversed */
   background-color: #ffc0cb;
   padding: 15px;
   border-radius: 8px;
+  margin-left: 2%;
+  text-align: center;
 }
-.row-6 .col-unique:first-child { margin-left: 0; }
 
-/* Row 6 responsive */
+/* removed margin on the rightmost item (which is now the 'first' visually) */
+.row-6 .col-unique:last-child {
+  margin-left: 0;
+}
+
+/* Row 6 tablet */
 @media only screen and (max-width: 767px) {
-  .col-unique { flex: 0 0 44%; margin-left: 4%; }
-  .row-6 .col-unique:first-child { margin-left: 0; }
+  .row-6 .col-unique { 
+    flex: 0 0 44%; 
+    margin-left: 4%; 
+  }
+
+  .row-6 .col-unique:last-child {
+    margin-left: 0;
+  }
 }
+
+/* Row 6 mobile */
 @media only screen and (max-width: 479px) {
-  .col-unique { flex: 0 0 92%; margin-left: 0; }
+  .row-6 .col-unique { 
+    flex: 0 0 92%;
+    margin-left: 0;
+  }
 }
+

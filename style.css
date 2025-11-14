@@ -1,154 +1,133 @@
-/* Border box declaration 
-https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+/* Border box declaration */
 html {
   box-sizing: border-box;
 }
-/* inherit border-box on all elements in the universe and before and after
- */
-*, 
-*:before, 
-*:after {
+*, *:before, *:after {
   box-sizing: inherit;
 }
 
+/* Body and link styles */
 body {
-	font-family: Arial, Geneva, sans-serif;
+  font-family: Arial, Geneva, sans-serif;
+  background: #fff; /* optional page background */
 }
 a {
-	color: #2772B0;
+  color: #2772B0;
 }
+
+/* Wrapper */
 .wrapper {
-	width: 97%;
-	max-width: 1200px;
-	margin: 0 auto;
-	float: none;
-	background-color: #fff;
+  width: 97%;
+  max-width: 1200px;
+  margin: 0 auto;
+  float: none;
+  background-color: #fff;
 }
 
+/* Images: uniform size */
 div img {
-	width: 100%;
-	max-width: 225px; 
+  width: 100%;
+  height: 200px;       /* fixed height for all images */
+  object-fit: cover;   /* crops nicely without stretching */
+  border-radius: 8px;  /* optional rounded corners */
 }
 
-/* grid system -- mobile first! */
-/* flex contatiner */
-
+/* Grid system -- mobile first */
 .row {
-	display: flex;
-	flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
 }
-
-/* attribute selector to give some margin between columns and apply styles to flex items */
 
 [class*="col-"] {
-	margin-left: 4%;
-	flex: 0 0 92%;
+  margin-left: 4%;
+  flex: 0 0 92%;
+  padding: 10px; /* optional spacing inside each box */
 }
 
-/* Add background colors to see how much space each column is taking */
-
+/* Background colors */
 .col-1 {
-	background-color: #A3CDD9;
+  background-color: #FFC0CB; /* pink */
 }
 
 .col-2 {
-	background-color: #FFFCE6;
+  background-color: #ADD8E6; /* blue */
+}
+
+.col-1-3,
+.col-3-3,
+.col-full,
+.col-unique {
+  background-color: #FFC0CB; /* pink for consistency */
 }
 
 /* Tablet Landscape Screen Sizes */
-@media only screen and (min-width: 480px)  {
-	
+@media only screen and (min-width: 480px) {
   .col-1,
   .col-2 {
-		flex: 0 0 44%;
-	}
-  
-  
-
-
-
-}
-/* Desktop screen Sizes */
-@media only screen and (min-width: 768px) {
-  
-  
- 	.col-1 {
-		flex: 0 0 20%;
-	}
-  
-  
-  
-	.col-2 {
-		flex: 0 0 44%;
-	}
-
+    flex: 0 0 44%;
+  }
 }
 
-/* row 3 desktop layout: 1 narrow + 1 wide column */
+/* Desktop Screen Sizes */
 @media only screen and (min-width: 768px) {
-  /* narrow column */
-  .col-1-3 {
+  .col-1 {
     flex: 0 0 20%;
   }
-
-  /* wide column */
-  .col-3-3 {
-    flex: 0 0 68%;
+  .col-2 {
+    flex: 0 0 44%;
   }
 }
 
-/* row 4 full-width column */
+/* Row 3: 1 narrow + 1 wide column */
 @media only screen and (min-width: 768px) {
-  .col-full {
-    flex: 0 0 96%;
-  }
+  .col-1-3 { flex: 0 0 20%; }
+  .col-3-3 { flex: 0 0 68%; }
 }
 
-/* row 5 order classes */
+/* Row 4 full-width column */
+@media only screen and (min-width: 768px) {
+  .col-full { flex: 0 0 96%; }
+}
+
+/* Row 5 order classes */
 .order-1 { order: 1; }
 .order-2 { order: 2; }
 .order-3 { order: 3; }
 
-/* row 5 tablet reorder */
-/* tablet: rearranged the oder*/
+/* Row 5 tablet reorder */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .order-1 { order: 1; }
   .order-2 { order: 3; }
   .order-3 { order: 2; }
 }
 
-/* row 5 mobile: normal stacking */
+/* Row 5 mobile: normal stacking */
 @media only screen and (max-width: 479px) {
   .order-1 { order: 1; }
   .order-2 { order: 2; }
   .order-3 { order: 3; }
 }
 
-/* row 6 unique layout */
-/* 5 items per row using flex-grow and calc */
+/* Row 6 unique layout */
 .row-6 {
   justify-content: space-between;
 }
 
 .col-unique {
-  background-color: #f2e5ff;
+  background-color: #FFC0CB;
   padding: 20px;
   text-align: center;
-  flex-grow: 1; /* allows items to stretch */
-  flex-basis: calc(20% - 10px); /* 5 items per row on desktop */
+  flex-grow: 1;
+  flex-basis: calc(20% - 10px);
   margin-bottom: 15px;
 }
 
-/* row 6 tablet layout */
+/* Row 6 tablet layout */
 @media only screen and (max-width: 767px) {
-  .col-unique {
-    flex-basis: 44%;
-  }
+  .col-unique { flex-basis: 44%; }
 }
 
-/* row 6 mobile layout */
+/* Row 6 mobile layout */
 @media only screen and (max-width: 479px) {
-  .col-unique {
-    flex-basis: 92%;
-  }
+  .col-unique { flex-basis: 92%; }
 }

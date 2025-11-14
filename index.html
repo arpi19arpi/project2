@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Desserts</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="style.css">
-  </head>
- <body>
-   <div class="wrapper">
-      <!-- row 1, 4 individual boxes -->
-      <div class="row">
+<head>
+  <meta charset="UTF-8">
+  <title>Desserts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- Row 1, 4 individual boxes -->
+    <div class="row row-1">
       <article class="col-1">
         <h3>Chocolate Cake</h3>
         <img src="images/chocolate_cake.jpg" alt="Chocolate Cake">
@@ -36,10 +38,10 @@
         <p>Crispy pastry shell filled with creamy custard and topped with fresh seasonal fruits. Colorful and delicious.</p>
         <p><a href="https://www.tasteofhome.com/recipes/fresh-fruit-tart/" target="_blank">Read more &gt;&gt;</a></p>
       </article>
-      </div>
-      
-      <!-- row 2, 2 boxes spanning 2 rows -->
-      <div class="row">
+    </div>
+
+    <!-- row 2, 2 boxes spanning 2 rows -->
+    <div class="row row-2">
       <article class="col-2">
         <h3>Cheesecake</h3>
         <img src="images/cheesecake.jpg" alt="Cheesecake">
@@ -52,10 +54,11 @@
         <p>Mini cupcakes with various flavors and colorful frosting. Perfect for parties or a sweet snack anytime.</p>
         <p><a href="https://www.allrecipes.com/recipe/17481/favorite-cupcakes/" target="_blank">Read more &gt;&gt;</a></p>
       </article>
-      </div>
-      
-      <!-- row 3: narrow left column, wide right/content column -->
-      <div class="row">
+    </div>
+
+    <!-- row 3: narrow left column and wide right column -->
+    <!-- mixed column widths (.col-1-3 + .col-3-3) -->
+    <div class="row row-3">
       <article class="col-1-3">
         <h3>Chocolate Brownie</h3>
         <img src="images/chocolate_brownie.jpg" alt="Chocolate brownie">
@@ -68,20 +71,22 @@
         <p>A variety of desserts including tarts, cakes, and cookies. Ideal for sharing with friends and family.</p>
         <p><a href="https://www.tasteofhome.com/collection/easy-dessert-recipes/" target="_blank">Read more &gt;&gt;</a></p>
       </article>
-      </div>
-      
-      <!-- row 4: one column -->
-      <div class="row">
+    </div>
+
+    <!-- row 4: full-width column -->
+    <!-- using .col-full to span entire row (96% width) -->
+    <div class="row row-4">
       <article class="col-full">
         <h3>Baking Tips</h3>
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=500&q=80" alt="Baking tips">
+        <img src="images/baking_tips.webp" alt="Baking tips">
         <p>Learn essential baking tips and tricks to make your desserts look professional and taste amazing.</p>
         <p><a href="https://www.kingarthurbaking.com/learn" target="_blank">Read more &gt;&gt;</a></p>
       </article>
-      </div>
-      
-      <!-- row 5, 1-2-1 individual boxes -->
-      <div class="row">
+    </div>
+
+    <!-- row 5: 1-2-1 order layout -->
+    <div class="row row-5">
+      <!-- .order-1/.order-2/.order-3 change position without changing HTML order -->
       <article class="col-1 order-1">
         <h3>Macaron Tower</h3>
         <img src="images/macaron_tower.webp" alt="Macaron tower">
@@ -100,26 +105,43 @@
         <p>Layers of fresh fruit, yogurt, and granola. Healthy, delicious, and visually appealing.</p>
         <p><a href="https://www.allrecipes.com/recipe/222960/fruit-parfait/" target="_blank">Read more &gt;&gt;</a></p>
       </article>
-      </div>
-      
-      <!-- row 6: unique flex layout -->
-      <div class="row row-6">
+    </div>
+
+    <!-- row 6: previously unique, now same style as others with images -->
+    <div class="row row-6">
+      <!-- multiple equal columns with images -->
       <article class="col-unique">
         <h3>Cakes</h3>
+        <img src="images/cakes.jpg" alt="Cakes">
+        <p>Variety of cakes in different flavors. Perfect for celebrations.</p>
+        <p><a href="#" target="_blank">Read more &gt;&gt;</a></p>
       </article>
       <article class="col-unique">
         <h3>Cookies</h3>
+        <img src="images/cookies.avif" alt="Cookies">
+        <p>Delicious cookies with chocolate chips, nuts, and more.</p>
+        <p><a href="#" target="_blank">Read more &gt;&gt;</a></p>
       </article>
       <article class="col-unique">
         <h3>Pastries</h3>
+        <img src="images/pastries.jpg" alt="Pastries">
+        <p>Flaky and sweet pastries, perfect for breakfast or snack time.</p>
+        <p><a href="#" target="_blank">Read more &gt;&gt;</a></p>
       </article>
       <article class="col-unique">
         <h3>Pies</h3>
+        <img src="images/pies.jpg" alt="Pies">
+        <p>Classic pies with fruit fillings, chocolate, or custard.</p>
+        <p><a href="#" target="_blank">Read more &gt;&gt;</a></p>
       </article>
       <article class="col-unique">
         <h3>Ice Cream</h3>
+        <img src="images/ice_cream_sundae.jpg" alt="Ice Cream">
+        <p>Assorted ice creams in different flavors. Cold and refreshing.</p>
+        <p><a href="#" target="_blank">Read more &gt;&gt;</a></p>
       </article>
-      </div>
     </div>
- </body> 
+
+  </div>
+</body>
 </html>

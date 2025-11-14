@@ -26,7 +26,7 @@ a {
 div img {
   width: 100%;
   max-width: 225px;
-  height: 150px;
+  height: 150px; /* fixed height for uniformity */
   object-fit: cover;
   border-radius: 5px;
 }
@@ -35,7 +35,7 @@ div img {
 .row {
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* space between rows */
 }
 
 /* General column styles */
@@ -52,7 +52,9 @@ div img {
   margin-left: 2%;
   background-color: #ffc0cb;
 }
-.row-1 .col-1:first-child { margin-left: 0; }
+.row-1 .col-1:first-child {
+  margin-left: 0;
+}
 
 /* Row 2: 2 equal columns */
 .row-2 .col-2 {
@@ -60,7 +62,9 @@ div img {
   margin-left: 4%;
   background-color: #add8e6;
 }
-.row-2 .col-2:first-child { margin-left: 0; }
+.row-2 .col-2:first-child {
+  margin-left: 0;
+}
 
 /* Row 3: narrow left + wide right on same line */
 .row-3 {
@@ -92,13 +96,13 @@ div img {
 }
 
 /* COLUMN WIDTHS ON DESKTOP */
-.row-5 .col-1 { 
-  flex: 0 0 20%;      /* left & right columns */
+.row-5 .col-1 {
+  flex: 0 0 20%; /* left & right columns */
   background-color: #ffc0cb;
 }
 
 .row-5 .col-2 {
-  flex: 0 0 44%;      /* middle column */
+  flex: 0 0 44%; /* middle column */
   background-color: #add8e6;
 }
 
@@ -113,27 +117,40 @@ div img {
 }
 
 /* RESPONSIVE ORDER CHANGES FOR TABLET */
-.order-1 { order: 1; }  /* left item */
-.order-2 { order: 2; }  /* middle item */
-.order-3 { order: 3; }  /* right item */
+.order-1 { order: 1; } /* left item */
+.order-2 { order: 2; } /* middle item */
+.order-3 { order: 3; } /* right item */
 
-/* TABLET LAYOUT: 2 across, reorder items */
+/* Tablet layout for row 5 */
 @media only screen and (max-width: 767px) {
-  .row-5 [class*="col-"] { flex: 0 0 44%; }
+  .row-5 [class*="col-"] {
+    flex: 0 0 44%;
+  }
 
-  .order-1 { order: 1; }   /* first */
-  .order-2 { order: 3; }   /* last */
+  .order-1 { order: 1; }
+  .order-2 { order: 3; }
   .order-3 { order: 2; }
+}
+
+/* Mobile layout for row 5 */
+@media only screen and (max-width: 479px) {
+  .row-5 [class*="col-"] {
+    flex: 0 0 92%;
+    margin-left: 0;
+  }
+}
 
 /* Row 6: unique layout using flex-direction: row-reverse */
 .row-6 {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row-reverse; /* rows order reversed */
+  flex-direction: row-reverse; /* reverse visual order */
   margin-bottom: 20px;
 }
+
+/* Desktop: 5 items per row */
 .row-6 .col-unique {
-  flex: 0 0 18%; /* size similar to other rows but order reversed */
+  flex: 0 0 18%; /* basic width for each item */
   background-color: #ffc0cb;
   padding: 15px;
   border-radius: 8px;
@@ -141,28 +158,27 @@ div img {
   text-align: center;
 }
 
-/* removed margin on the rightmost item (which is now the 'first' visually) */
+/* remove extra left margin from visually last item */
 .row-6 .col-unique:last-child {
   margin-left: 0;
 }
 
-/* Row 6 tablet */
+/* Tablet: 2 items per row */
 @media only screen and (max-width: 767px) {
-  .row-6 .col-unique { 
-    flex: 0 0 44%; 
-    margin-left: 4%; 
+  .row-6 .col-unique {
+    flex: 0 0 44%;
+    margin-left: 4%;
   }
 
-  .row-6 .col-unique:last-child {
+  .row-6 .col-unique:nth-child(odd) {
     margin-left: 0;
   }
 }
 
-/* Row 6 mobile */
+/* Mobile: full width */
 @media only screen and (max-width: 479px) {
-  .row-6 .col-unique { 
+  .row-6 .col-unique {
     flex: 0 0 92%;
     margin-left: 0;
   }
 }
-

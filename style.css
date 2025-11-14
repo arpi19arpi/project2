@@ -49,14 +49,27 @@ div img {
 }
 
 /* Row 1: 4 equal columns */
-.row-1 .col-1 {
-  background-color: #ffc0cb; /* pink */
+@media only screen and (min-width: 768px) {
+  .row-1 .col-1 {
+    flex: 0 0 22%;  /* 4 columns with small margin */
+    margin-left: 2%; /* space between columns */
+  }
+  .row-1 .col-1:first-child {
+    margin-left: 0; /* remove left margin for first column */
+  }
 }
 
 /* Row 2: 2 equal columns */
-.row-2 .col-2 {
-  background-color: #add8e6; /* light blue */
+@media only screen and (min-width: 768px) {
+  .row-2 .col-2 {
+    flex: 0 0 46%;  /* 2 equal columns with margin */
+    margin-left: 4%; 
+  }
+  .row-2 .col-2:first-child {
+    margin-left: 0;
+  }
 }
+
 
 /* Row 3: mixed widths */
 .col-1-3 { background-color: #ffc0cb; }
@@ -117,3 +130,4 @@ div img {
   .order-2 { order: 3; }
   .order-3 { order: 2; }
 }
+
